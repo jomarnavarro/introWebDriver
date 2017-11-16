@@ -1,0 +1,2 @@
+Cree un script que le permita darle like a todas las fotos del primer album 
+de su amigo/a
