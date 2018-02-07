@@ -28,9 +28,16 @@ public class FacebookAddFriend {
 		//agregar 
 
 		agregarAmigo("nombreAmigo"); 
+		
+		destruirConfiguracion();
 
 	} 
 
+
+	private static void destruirConfiguracion() {
+		driver.close();
+		
+	}
 
 
 	private static void configurarNavegador() {  
