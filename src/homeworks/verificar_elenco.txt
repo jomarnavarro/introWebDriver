@@ -1,2 +1,2 @@
-Busque la pelicula de su preferencia en IMDB, y verifique que el elenco 
+Busque la pelicula que tenga por lo menos dos versiones o este seriada. de su preferencia en IMDB,  y verifique que el elenco 
 sea el correcto.
