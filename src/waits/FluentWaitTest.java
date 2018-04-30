@@ -1,4 +1,4 @@
-package tests.sampleTests;
+package waits;
 
 import com.google.common.base.Function;
 import org.openqa.selenium.By;
@@ -22,9 +22,9 @@ public class FluentWaitTest {
 
     public static void main(String[] args) {
         // Configuration lines: Set system Property for context execution.
-        Path currentRelativePath = Paths.get("");
-        String pathToDriver = currentRelativePath.toAbsolutePath().toString() + File.separator + "DriverEXE" + File.separator;
-        System.setProperty("webdriver.chrome.driver", pathToDriver + "chromedriver");
+//        Path currentRelativePath = Paths.get("");
+//        String pathToDriver = currentRelativePath.toAbsolutePath().toString() + File.separator + "DriverEXE" + File.separator;
+//        System.setProperty("webdriver.chrome.driver", pathToDriver + "chromedriver");
 
         WebDriver driver = new ChromeDriver();
         driver.get("https://www.google.com.mx");

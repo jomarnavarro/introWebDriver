@@ -1,4 +1,4 @@
-package tests.sampleTests;
+package intro;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,11 +16,10 @@ import java.util.concurrent.TimeUnit;
  * Created by design on 11/17/17.
  */
 public class WebElementsTest {
-
+	
     public static void main(String[] args) {
         // Configuration lines: Set system Property for context execution.
-        Path currentRelativePath = Paths.get("");
-        String pathToDriver = currentRelativePath.toAbsolutePath().toString() + File.separator + "DriverEXE" + File.separator;
+    	String pathToDriver = "C:/test_automation/drivers/";
         System.setProperty("webdriver.chrome.driver", pathToDriver + "chromedriver");
 
         WebDriver driver = new ChromeDriver();

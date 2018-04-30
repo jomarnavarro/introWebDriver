@@ -16,7 +16,7 @@ public class YahooSearchMethods {
 	static WebDriver driver;
 
 	public static void main(String[] args) {
-		setUp("chrome");
+		setUp("chrome", "http://www.yahoo.com");
 
 		searchYahoo("Selenium");
 		
@@ -39,8 +39,8 @@ public class YahooSearchMethods {
 	}
 
 	private static void clickLink(String linkText) {
-		WebElement seleniumLink = driver.findElement(By.linkText(linkText));
-		seleniumLink.click();
+		WebElement link = driver.findElement(By.linkText(linkText));
+		link.click();
 		
 	}
 
@@ -56,7 +56,7 @@ public class YahooSearchMethods {
 
 	}
 
-	private static void setUp(String browser) {
+	private static void setUp(String browser, String url) {
 		switch(browser) {
 		case "chrome":
 			//System.setProperty("webdriver.chrome.driver", "/usr/jnavarro/test");
@@ -74,7 +74,7 @@ public class YahooSearchMethods {
 			System.exit(-1);
 		}
 		driver.manage().timeouts().implicitlyWait(30,  TimeUnit.SECONDS);
-		driver.get("http://www.yahoo.com");
+		driver.get(url);
 
 	}
 

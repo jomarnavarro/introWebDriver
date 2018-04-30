@@ -13,6 +13,5 @@ public class ImdbMovieSearch extends ParentTest{
 		testMovieSearch("It", "RonClements", "1990");
 		tearDown();		
 	}
-
 }
 

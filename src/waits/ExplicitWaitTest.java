@@ -1,4 +1,4 @@
-package tests.sampleTests;
+package waits;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,11 +24,11 @@ public class ExplicitWaitTest {
         System.setProperty("webdriver.chrome.driver", pathToDriver + "chromedriver");
 
         WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         driver.get("http://twitter.com/");
 
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 15);
 
         WebElement emailField = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("signin-email")));
         WebElement passwordField = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("signin-password")));
