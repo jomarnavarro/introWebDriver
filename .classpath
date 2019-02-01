@@ -2,5 +2,12 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/libs/byte-buddy-1.8.15.jar"/>
+	<classpathentry kind="lib" path="C:/libs/client-combined-3.141.59.jar"/>
+	<classpathentry kind="lib" path="C:/libs/client-combined-3.141.59-sources.jar"/>
+	<classpathentry kind="lib" path="C:/libs/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/libs/guava-25.0-jre.jar"/>
+	<classpathentry kind="lib" path="C:/libs/okhttp-3.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/libs/okio-1.14.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

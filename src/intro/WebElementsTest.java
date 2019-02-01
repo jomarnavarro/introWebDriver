@@ -16,28 +16,30 @@ import java.util.concurrent.TimeUnit;
  * Created by design on 11/17/17.
  */
 public class WebElementsTest {
-	
-    public static void main(String[] args) {
-        // Configuration lines: Set system Property for context execution.
-    	String pathToDriver = "C:/test_automation/drivers/";
-        System.setProperty("webdriver.chrome.driver", pathToDriver + "chromedriver");
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	public static void main(String[] args) {
 
-        driver.get("http://twitter.com/");
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-        WebElement emailField = driver.findElement(By.id("signin-email"));
-        WebElement passwordField = driver.findElement(By.id("signin-password"));
-        driver.findElement(By.tagName("button"));
+		driver.get("http://songs-by-sinatra.herokuapp.com");
 
-        emailField.sendKeys("test.selenium@gmail.com");
-        passwordField.sendKeys("n07MyPassw0rd");
+		WebElement loginLink = driver.findElement(By.xpath("//a[@href='/login']"));
+		loginLink.click();
+		WebElement usernameField = driver.findElement(By.id("username"));
+		WebElement passwordField = driver.findElement(By.id("password"));
+		WebElement loginButton = driver.findElement(By.xpath("//input[@value = 'Log In']"));
 
-        WebElement signInButton = driver.findElement(By.tagName("button"));
-        signInButton.click();
+		usernameField.sendKeys("frank");
+		passwordField.sendKeys("sinatra");
+		loginButton.click();
 
-        WebElement forgotPass = driver.findElement(By.linkText("Forgot password?"));
-        forgotPass.click();
-    }
+		WebElement loggedInMessage = driver.findElement(By.id("flash"));
+		if (loggedInMessage.getText().equals("You are now logged in as frank"))
+			System.out.println("Test Passed");
+		else
+			System.out.println("Test Failed");
+		
+		driver.close();
+	}
 }
