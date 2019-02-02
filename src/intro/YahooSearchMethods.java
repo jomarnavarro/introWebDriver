@@ -25,6 +25,8 @@ public class YahooSearchMethods {
 		selectPopUp();
 
 		clickLink("Download");
+		
+		closeBrowser();
 
 	}
 
@@ -76,6 +78,11 @@ public class YahooSearchMethods {
 		driver.manage().timeouts().implicitlyWait(30,  TimeUnit.SECONDS);
 		driver.get(url);
 
+	}
+	
+	private static void closeBrowser() {
+		driver.close();
+		
 	}
 
 }

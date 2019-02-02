@@ -38,6 +38,8 @@ public class YahooSearchMain {
 		
 		WebElement downloadLink = driver.findElement(By.linkText("Download"));
 		downloadLink.click();
+		
+		driver.close();
 
 	}
 
