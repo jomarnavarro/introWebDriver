@@ -6,13 +6,13 @@ public class FacebookTest extends ParentTest{
 
 	public static void main(String[] args) {
 		setUp();
-		testFriendSearch("Curso Selenium Victor");
+		testFriendSearch("Monica Galindo");
 		tearDown();
 
 	}
 
 	private static void testFriendSearch(String friendName) {
-		loginToFacebook("clase.selenium.victor@gmail.com", "Test1234");
+		loginToFacebook("username", "password");
 		searchFriend(friendName);
 		addFriend(friendName);
 		

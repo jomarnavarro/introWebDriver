@@ -30,14 +30,14 @@ public class ParentTest {
 	public static void verifyLinkExists(String linkText) {
 		try { // para que se ponga el try cathc en automatico se selecciona el if else y se da clic derecho se selcciona sorroun with > try catch block
 			if(driver.findElement(By.partialLinkText(linkText)).isDisplayed())
-				System.out.println("The movie " + linkText + " is display");
+				System.out.println("The movie star " + linkText + " is displayed");
 		} catch (Exception e) {  //lo del catch es lo que corresponde al else
-			System.out.println("The movie " + linkText + " is not display");
+			System.out.println("The movie star " + linkText + " is not displayed");
 			System.exit(-1);
 		}
 	}
 
-	public static void testMovieSearch(String movieName, String movieDirector, String movieYear) {
+	public static void testMovieSearch(String movieName, String movieStar, String movieYear) {
 
 		inputText(searchBoxLocator, movieName);						
 		clickElement(searchButtonLocator);
@@ -45,12 +45,17 @@ public class ParentTest {
 		//Verificar que exista un link de esa pelicula	
 		verifyLinkExists(movieName, movieYear);
 
-		clickElement(By.partialLinkText(movieName));
+		clickMovieLink(movieName, movieYear);
 
 		//verificar que el director sea correcto
-		verifyLinkExists(movieDirector);
+		verifyLinkExists(movieStar);
 	}
 
+
+	private static void clickMovieLink(String movieName, String movieYear) {
+		String movieLinkXpath = "//td[contains(.,'"+ movieYear +"')]//a[contains(text(), '"+ movieName +"')]";
+		driver.findElement(By.xpath(movieLinkXpath)).click();		
+	}
 
 	private static void verifyLinkExists(String movieName, String movieYear) {
 		WebElement correctColumn = null;
@@ -63,10 +68,11 @@ public class ParentTest {
 			}	
 		}
 		
-		if(correctColumn != null) {
-			WebElement correctLink = correctColumn.findElement(By.xpath("./a"));
-			correctLink.click();
-		}
+		if(correctColumn != null)
+			System.out.println("Movie " + movieName + " exists.");
+		else
+			System.out.println("Movie " + movieName + " does not exist.");
+		
 		
 	}
 
