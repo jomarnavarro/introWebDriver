@@ -16,11 +16,6 @@ import java.util.concurrent.TimeUnit;
 public class WaitTest {
 
     public static void main(String[] args) {
-        // Configuration lines: Set system Property for context execution.
-        Path currentRelativePath = Paths.get("");
-        String pathToDriver = currentRelativePath.toAbsolutePath().toString() + File.separator + "DriverEXE" + File.separator;
-        System.setProperty("webdriver.chrome.driver", pathToDriver + "chromedriver");
-
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
@@ -30,6 +25,10 @@ public class WaitTest {
 
         searchInput.clear();
         searchInput.sendKeys("Mobile Telephone System");
+        
+        driver.findElement(By.cssSelector("button.pure-button")).click();
+        
+        driver.close();
     }
 
 }

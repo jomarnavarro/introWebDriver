@@ -27,7 +27,7 @@ public class FluentWaitTest {
 //        System.setProperty("webdriver.chrome.driver", pathToDriver + "chromedriver");
 
         WebDriver driver = new ChromeDriver();
-        driver.get("https://www.google.com.mx");
+        driver.get("https://yahoo.com.mx");
 
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
                 .withTimeout(30, SECONDS)
@@ -36,18 +36,20 @@ public class FluentWaitTest {
 
         WebElement searchBox = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.id("lst-ib"));
+                return driver.findElement(By.name("p"));
             }
         });
 
         searchBox.sendKeys("Quinta generacion de computadoras");
 
-        WebElement searchButton = wait.until(new Function<WebDriver, WebElement>() {
+        WebElement searchListOption = wait.until(new Function<WebDriver, WebElement>() {
             public WebElement apply(WebDriver driver) {
-                return driver.findElement(By.className("lsb"));
+                return driver.findElement(By.xpath("//*[contains(@class, 'aclist-content')]"));
             }
         });
 
-        searchButton.click();
+        searchListOption.findElement(By.xpath("//*[contains(@class, 'aclist-item')]")).click();
+        
+        driver.close();
     }
 }

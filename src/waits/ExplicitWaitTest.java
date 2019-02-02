@@ -17,29 +17,64 @@ import java.util.concurrent.TimeUnit;
  */
 public class ExplicitWaitTest {
 
-    public static void main(String[] args) {
-        // Configuration lines: Set system Property for context execution.
-        Path currentRelativePath = Paths.get("");
-        String pathToDriver = currentRelativePath.toAbsolutePath().toString() + File.separator + "DriverEXE" + File.separator;
-        System.setProperty("webdriver.chrome.driver", pathToDriver + "chromedriver");
+	public static void main(String[] args) {
 
-        WebDriver driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		WebDriver driver = new ChromeDriver();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-        driver.get("http://twitter.com/");
+		driver.get("http://songs-by-sinatra.herokuapp.com");
 
-        WebDriverWait wait = new WebDriverWait(driver, 15);
+		WebDriverWait wait = new WebDriverWait(driver, 15);
 
-        WebElement emailField = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("signin-email")));
-        WebElement passwordField = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("signin-password")));
+		WebElement loginLink = wait
+								.until(
+										ExpectedConditions
+										.presenceOfElementLocated(
+												By.xpath("//a[@href='/login']")
+										)
+								);
+		loginLink.click();
+		WebElement usernameField = wait
+								.until(
+										ExpectedConditions
+										.presenceOfElementLocated(
+												By.id("username")
+										)
+								);
 
-        emailField.sendKeys("test.selenium@gmail.com");
-        passwordField.sendKeys("n07MyPassw0rd");
+		WebElement passwordField = wait
+								.until(
+										ExpectedConditions
+										.presenceOfElementLocated(
+												By.id("password")
+										)
+								);
+		//
+		WebElement loginButton = wait
+								.until(
+										ExpectedConditions
+										.presenceOfElementLocated(
+												By.xpath("//input[@value = 'Log In']")
+										)
+								);
 
-        WebElement signInButton = wait.until(ExpectedConditions.elementToBeClickable(By.tagName("button")));
-        signInButton.click();
+		usernameField.sendKeys("frank");
+		passwordField.sendKeys("sinatra");
+		loginButton.click();
 
-        WebElement forgotPass = wait.until(ExpectedConditions.elementToBeClickable(By.linkText("Forgot password?")));
-        forgotPass.click();
-    }
+		WebElement loggedInMessage = wait
+									.until(
+										ExpectedConditions
+											.presenceOfElementLocated(
+												By.id("flash")
+											)
+										);
+		
+		if (loggedInMessage.getText().equals("You are now logged in as frank"))
+			System.out.println("Test Passed");
+		else
+			System.out.println("Test Failed");
+
+		driver.close();
+	}
 }
