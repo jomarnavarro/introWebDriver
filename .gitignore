@@ -1,3 +1,5 @@
+.idea/
+*.iml
 AcosadorFacebook.java
 BuscarPeliculaImdb.java
 Credentials.java
