@@ -82,7 +82,6 @@ public class YahooSearchMethods {
 	
 	private static void closeBrowser() {
 		driver.close();
-		
 	}
 
 }
