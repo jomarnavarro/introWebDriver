@@ -1,4 +1,4 @@
-package intro;
+package bIntro;
 
 import org.openqa.selenium.By;
 

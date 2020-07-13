@@ -1,5 +1,5 @@
 .idea/
-*.iml
+target/
 AcosadorFacebook.java
 BuscarPeliculaImdb.java
 Credentials.java

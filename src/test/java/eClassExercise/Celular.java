@@ -1,4 +1,4 @@
-package classExercise;
+package eClassExercise;
 
 public class Celular {
 

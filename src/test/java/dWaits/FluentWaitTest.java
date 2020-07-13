@@ -1,4 +1,4 @@
-package waits;
+package dWaits;
 
 import com.google.common.base.Function;
 import org.openqa.selenium.By;
@@ -8,10 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
-
-import java.io.File;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
